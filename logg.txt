@@ -1,0 +1,2404 @@
+BS: 64
+NP: 128
+ME: 50
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 50
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 50
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 50
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 350
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 200
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 100
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 64
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 2
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 1500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 1500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 1500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 1500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+BS: 32
+NP: 128
+ME: 500
+BLR: 0.001
+M: 0.9
+O: adam
+DS: 2000
+DR: 0.7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
