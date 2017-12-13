@@ -126,10 +126,12 @@ def printInfo():
 
 def convertToNumpy2D(data):
 	array = np.array([[0,0,0]])
+	objLen = []
 	for x in range(len(data)):
+		objLen.append(len(data[x]))
 		temp=np.asarray(data[x],dtype=np.float32)
 		array = np.concatenate((array,temp),axis=0)
-	return array
+	return array, objLen
 
 
 # Create the scatter plot

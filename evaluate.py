@@ -107,8 +107,8 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
 
     current_data, order_list, all_clusters = nn.importData(INPUT_FILE_NAME)
     pdb.set_trace()
-    array = nn.convertToNumpy2D(all_clusters)
-      
+    array, objLen = nn.convertToNumpy2D(all_clusters)
+    objLen = np.array(objLen) 
     current_label = np.zeros(len(current_data))
     current_data = current_data[:,0:NUM_POINT,:]
     current_label = np.squeeze(current_label)
@@ -175,53 +175,10 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     f.create_dataset("data",data=current_data,dtype=float)
     f.create_dataset("label",data=predValues,dtype=int)
     f.create_dataset("all_clusters",data=array,dtype=float)
+    f.create_dataset("obj_len",data=objLen,dtype=int)
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
-
-#canvas = scene.SceneCanvas(keys='interactive', show=True)
-#view = canvas.central_widget.add_view()
-#fov = 60.
-#cam1 = scene.cameras.FlyCamera(parent=view.scene, fov=fov)
-#cam2 = scene.cameras.TurntableCamera(parent=view.scene, fov=fov)
-#cam3 = scene.cameras.ArcballCamera(parent=view.scene, fov=fov)
-#view.camera = cam1
-
-# Implement key presses
-#@canvas.events.key_press.connect
-#def on_key_press(event):
-#    global opaque_cmap, translucent_cmap
-#    if event.text == '1':
-#        cam_toggle = {cam1: cam2, cam2: cam3, cam3: cam1}
-#        view.camera = cam_toggle.get(view.camera, 'fly')
-#    elif event.text == '2':
-#        methods = ['mip', 'translucent', 'iso', 'additive']
-#        method = methods[(methods.index(volume1.method) + 1) % 4]
-#        print("Volume render method: %s" % method)
-#        cmap = opaque_cmap if method in ['mip', 'iso'] else translucent_cmap
-#        volume1.method = method
-#        volume1.cmap = cmap
-#        volume2.method = method
-#        volume2.cmap = cmap
-#    elif event.text == '3':
-#        volume1.visible = not volume1.visible
-#        volume2.visible = not volume1.visible
-#    elif event.text == '4':
-#        if volume1.method in ['mip', 'iso']:
-#            cmap = opaque_cmap = next(opaque_cmaps)
-#        else:
-#            cmap = translucent_cmap = next(translucent_cmaps)
-#        volume1.cmap = cmap
-#        volume2.cmap = cmap
-#    elif event.text == '0':
-#        cam1.set_range()
-#        cam3.set_range()
-#    elif event.text != '' and event.text in '[]':
-#        s = -0.025 if event.text == '[' else 0.025
-#        volume1.threshold += s
-#        volume2.threshold += s
-#        th = volume1.threshold if volume1.visible else volume2.threshold
-#        print("Isosurface threshold: %0.3f" % th)
 
 
 if __name__=='__main__':
