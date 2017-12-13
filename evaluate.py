@@ -25,10 +25,13 @@ parser.add_argument('--num_point', type=int, default=128, help='Point Number [25
 parser.add_argument('--model_path', default='log/model.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
 parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]')
 parser.add_argument('--visu', action='store_true', help='Whether to dump image for error case [default: False]')
-parser.add_argument('--filename', help='Output filename')
+parser.add_argument('--output', help='Output Filename')
+parser.add_argument('--input',help='Input Filename')
 FLAGS = parser.parse_args()
 
-FILE_NAME = FLAGS.filename
+
+INPUT_FILE_NAME = FLAGS.input
+OUTPUT_FILE_NAME = FLAGS.output
 BATCH_SIZE = FLAGS.batch_size
 NUM_POINT = FLAGS.num_point
 MODEL_PATH = FLAGS.model_path
@@ -102,7 +105,13 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     total_correct_class = [0 for _ in range(NUM_CLASSES)]
     fout = open(os.path.join(DUMP_DIR, 'pred_label.txt'), 'w')
 
-    current_data, order_list, all_clusters = nn.exportData()
+    current_data, order_list, all_clusters = nn.importData(INPUT_FILE_NAME)
+    pdb.set_trace()
+    array = np.array([[0,0,0]])
+    for x in range(len(all_clusters)):
+        temp=np.asarray(all_clusters[x],dtype=np.float32)
+        array = np.concatenate((array,temp),axis=0)
+        
     current_label = np.zeros(len(current_data))
     current_data = current_data[:,0:NUM_POINT,:]
     current_label = np.squeeze(current_label)
@@ -165,10 +174,10 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
     print(predValues)
     
-    f = h5py.File(FILE_NAME + ".h5","w")
+    f = h5py.File(OUTPUT_FILE_NAME + ".h5","w")
     f.create_dataset("data",data=current_data,dtype=float)
     f.create_dataset("label",data=predValues,dtype=int)
-    f.create_dataset("all_clusters",data=all_clusters,dtype=float)
+    f.create_dataset("all_clusters",data=array,dtype=float)
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))

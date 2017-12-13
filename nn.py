@@ -75,8 +75,8 @@ def resize(model,pointCloud):
 
 	return formatedCloud
 
-def retrieveData():
-	pointCloud = readFile("DataSet:13Frame:359.pcd")
+def retrieveData(inputFile):
+	pointCloud = readFile(inputFile)
 	current_time = time.time()
 	tree = KDTree(pointCloud)
 	print("Tree build time:%f",(time.time()-current_time))
@@ -86,10 +86,10 @@ def retrieveData():
 	subGraph = list(nx.connected_components(Graph))
 	return formatData(subGraph,pointCloud)
 
-def exportData():
+def importData(inputFile):
 	formatedList = []
 	orderList = []
-	data,labels = retrieveData()
+	data,labels = retrieveData(inputFile)
 	for cluster in data:
 		if len(cluster) == 128:
 			X = (max([point[0] for point in cluster]) + min([point[0] for point in cluster])) / 2
@@ -157,4 +157,3 @@ def colorMaping(predLabels,data):
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
-data, labels = retrieveData()
