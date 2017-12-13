@@ -98,7 +98,7 @@ def exportData():
 			centeredCoordinates = [(point[0]-X,point[1]-Y,point[2]-Z) for point in cluster]
 			formatedList.append(centeredCoordinates)
 			orderList.append(data.index(cluster))
-	return np.array(formatedList), orderList
+	return np.array(formatedList), orderList, data
 
 
 #fileName = 0

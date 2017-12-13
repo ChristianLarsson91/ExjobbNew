@@ -102,7 +102,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     total_correct_class = [0 for _ in range(NUM_CLASSES)]
     fout = open(os.path.join(DUMP_DIR, 'pred_label.txt'), 'w')
 
-    current_data, order_list = nn.exportData()
+    current_data, order_list, all_clusters = nn.exportData()
     current_label = np.zeros(len(current_data))
     current_data = current_data[:,0:NUM_POINT,:]
     current_label = np.squeeze(current_label)
@@ -168,7 +168,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     f = h5py.File(FILE_NAME + ".h5","w")
     f.create_dataset("data",data=current_data,dtype=float)
     f.create_dataset("label",data=predValues,dtype=int)
-
+    f.create_dataset("all_clusters",data=all_clusters,dtype=float)
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))

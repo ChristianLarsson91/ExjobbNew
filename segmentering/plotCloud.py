@@ -174,7 +174,6 @@ def colorMaping(predLabels,data):
 	n=0	
 	for obj in data:
 		if len(obj) == 128:
-			pdb.set_trace()
 			if predLabels[n] == 0:
 				color = np.array([[1, 0, 0]] * len(obj))
 				colorMap = np.concatenate((colorMap,color),axis=0)
@@ -193,11 +192,18 @@ def colorMaping(predLabels,data):
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
-predLabels = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3]
-data,labels = retrieveData()
-array = convertToNumpy2D(data)
+#predLabels = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3]
+#data,labels = retrieveData()
+#array = convertToNumpy2D(data)
+file = h5py.File(sys.argv[1],'r')
+data = list(file['data'])
+predLabels = list(file['label'])
+#pdb.set_trace()
 scatter = scene.visuals.Markers()
-formated, orderList = exportData()
+array = convertToNumpy2D(data)
+#predLabels = np.ndarray.tolist(predLabels)
+#data = np.ndarray.tolist(data)
+#formated, orderList = exportData()
 fileName = 0
 for cluster in data:
 	if len(cluster) == 128:
