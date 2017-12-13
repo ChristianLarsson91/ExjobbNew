@@ -15,6 +15,7 @@ import provider
 import pc_util
 import nn
 import pdb
+import h5py
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
@@ -162,6 +163,11 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     log_string('eval accuracy: %f' % (total_correct / float(total_seen)))
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
     print(predValues)
+    
+    f = h5py.File(sys.argv[1] + ".h5","w")
+    f.create_dataset("data",data=current_data,dtype=float)
+    f.create_dataset("label",data=predValues,dtype=int)
+
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))

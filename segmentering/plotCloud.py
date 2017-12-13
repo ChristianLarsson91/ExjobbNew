@@ -11,6 +11,7 @@ import random
 from vispy import scene, visuals, app, gloo, io
 from itertools import cycle
 import time
+import pdb
 
 groundLevel = -1.64
 distance = 0.5
@@ -173,6 +174,7 @@ def colorMaping(predLabels,data):
 	n=0	
 	for obj in data:
 		if len(obj) == 128:
+			pdb.set_trace()
 			if predLabels[n] == 0:
 				color = np.array([[1, 0, 0]] * len(obj))
 				colorMap = np.concatenate((colorMap,color),axis=0)
@@ -191,7 +193,7 @@ def colorMaping(predLabels,data):
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
-predLabels = [3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 0, 3, 2, 3, 3, 3]
+predLabels = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3]
 data,labels = retrieveData()
 array = convertToNumpy2D(data)
 scatter = scene.visuals.Markers()
