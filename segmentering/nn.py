@@ -94,20 +94,11 @@ def exportData():
 			Z = (max([point[2] for point in cluster]) + min([point[2] for point in cluster])) / 2
 			centeredCoordinates = [(point[0]-X,point[1]-Y,point[2]-Z) for point in cluster]
 			formatedList.append(centeredCoordinates)
-			orderList.append(data.index(x))
+			orderList.append(data.index(cluster))
 	return np.array(formatedList), orderList
 
 
-#fileName = 0
-#for cluster in subGraph:
-#	if len(cluster) > 30:	
-#		list(cluster)
-#		fileName += 1
-#		output=open((str(fileName)+".pcd"),"w")
-#		output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(cluster)) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(cluster))+"\nDATA ascii\n")
-#		for node in cluster:
-#			output.write(str(pointCloud[node][0])+" "+str(pointCloud[node][1])+" "+str(pointCloud[node][2])+"\n")
-#		output.close()
+
 
 
 
@@ -182,14 +173,14 @@ def colorMaping(predLabels,data):
 	n=0	
 	for obj in data:
 		if len(obj) == 128:
-			if predLabels[n] == 1:
-				color = np.array([[1, 1, 0]] * len(obj))
+			if predLabels[n] == 0:
+				color = np.array([[1, 0, 0]] * len(obj))
+				colorMap = np.concatenate((colorMap,color),axis=0)
+			elif predLabels[n] == 1:
+				color = np.array([[0, 1, 0]] * len(obj))
 				colorMap = np.concatenate((colorMap,color),axis=0)
 			elif predLabels[n] == 2:
-				color = np.array([[0, 1, 1]] * len(obj))
-				colorMap = np.concatenate((colorMap,color),axis=0)
-			elif predLabels[n] == 3:
-				color = np.array([[1, 0, 1]] * len(obj))
+				color = np.array([[0, 0, 1]] * len(obj))
 				colorMap = np.concatenate((colorMap,color),axis=0)
 			else:
 				color = np.array([[1, 1, 1]] * len(obj))
@@ -200,11 +191,24 @@ def colorMaping(predLabels,data):
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
+predLabels = [3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 0, 3, 2, 3, 3, 3]
 data,labels = retrieveData()
 array = convertToNumpy2D(data)
 scatter = scene.visuals.Markers()
 formated, orderList = exportData()
-scatter.set_data(array[:,:3], face_color=colorMaping(labels,data),size=1)
+fileName = 0
+for cluster in data:
+	if len(cluster) == 128:
+		fileName += 1
+		output=open((str(fileName)+".pcd"),"w")
+		output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(cluster)) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(cluster))+"\nDATA ascii\n")
+		for node in cluster:
+			output.write(str(node[0])+" "+str(node[1])+" "+str(node[2])+"\n")
+		output.close()
+
+
+
+scatter.set_data(array[:,:3], face_color=colorMaping(predLabels,data),size=2)
 view.add(scatter)
 view.camera = scene.PanZoomCamera(aspect=1)
 view.camera.set_range()
