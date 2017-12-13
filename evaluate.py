@@ -25,9 +25,10 @@ parser.add_argument('--num_point', type=int, default=128, help='Point Number [25
 parser.add_argument('--model_path', default='log/model.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
 parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]')
 parser.add_argument('--visu', action='store_true', help='Whether to dump image for error case [default: False]')
+parser.add_argument('--filename', help='Output filename')
 FLAGS = parser.parse_args()
 
-
+FILE_NAME = FLAGS.filename
 BATCH_SIZE = FLAGS.batch_size
 NUM_POINT = FLAGS.num_point
 MODEL_PATH = FLAGS.model_path
@@ -164,7 +165,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
     print(predValues)
     
-    f = h5py.File(sys.argv[1] + ".h5","w")
+    f = h5py.File(FILE_NAME + ".h5","w")
     f.create_dataset("data",data=current_data,dtype=float)
     f.create_dataset("label",data=predValues,dtype=int)
 

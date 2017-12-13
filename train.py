@@ -14,23 +14,23 @@ sys.path.append(os.path.join(BASE_DIR, 'utils'))
 import provider
 import tf_util
 import pdb
-import logger
+#import logger
 from datetime import datetime
 #f=open('graphFile.txt','w')
 #f2 = open("netText "+ str(datetime.now()) + ".txt", 'w+')
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
-parser.add_argument('--model', default='pointnetFinal_cls', help='Model name: pointnet_cls or pointnet_cls_basic [default: pointnet_cls]')
-parser.add_argument('--log_dir', default='log', help='Log dir [default: log]')
-parser.add_argument('--num_point', type=int, default=128, help='Point Number [256/512/1024/2048] [default: 1024]')
-parser.add_argument('--max_epoch', type=int, default=300, help='Epoch to run [default: 250]')
-parser.add_argument('--batch_size', type=int, default=64, help='Batch Size during training [default: 32]')
-parser.add_argument('--learning_rate', type=float, default=0.001, help='Initial learning rate [default: 0.001]')
-parser.add_argument('--momentum', type=float, default=0.9, help='Initial learning rate [default: 0.9]')
-parser.add_argument('--optimizer', default='adam', help='adam or momentum [default: adam]')
-parser.add_argument('--decay_step', type=int, default=2000, help='Decay step for lr decay [default: 200000]')
-parser.add_argument('--decay_rate', type=float, default=0.7, help='Decay rate for lr decay [default: 0.8]')
+parser.add_argument('--gpu', type = int, default = 0, help = 'GPU to use [default: GPU 0]')
+parser.add_argument('--model', default = 'pointnetFinal_cls', help = 'Model name: pointnet_cls or pointnet_cls_basic [default: pointnet_cls]')
+parser.add_argument('--log_dir', default = 'log', help = 'Log dir [default: log]')
+parser.add_argument('--num_point', type = int, default = 128, help = 'Point Number [256/512/1024/2048] [default: 1024]')
+parser.add_argument('--max_epoch', type = int, default = 500, help = 'Epoch to run [default: 250]')
+parser.add_argument('--batch_size', type = int, default = 64, help = 'Batch Size during training [default: 32]')
+parser.add_argument('--learning_rate', type = float, default = 0.001, help = 'Initial learning rate [default: 0.001]')
+parser.add_argument('--momentum', type = float, default = 0.9, help = 'Initial learning rate [default: 0.9]')
+parser.add_argument('--optimizer', default='adam', help = 'adam or momentum [default: adam]')
+parser.add_argument('--decay_step', type = int, default = 2000, help = 'Decay step for lr decay [default: 200000]')
+parser.add_argument('--decay_rate', type = float, default = 0.7, help = 'Decay rate for lr decay [default: 0.8]')
 FLAGS = parser.parse_args()
 
 
@@ -44,18 +44,18 @@ OPTIMIZER = FLAGS.optimizer
 DECAY_STEP = FLAGS.decay_step
 DECAY_RATE = FLAGS.decay_rate
 
-log_list=[]
-log_list.append("BS: " + str(BATCH_SIZE) + "\n")
-log_list.append("NP: " + str(NUM_POINT) + "\n")
-log_list.append("ME: " + str(MAX_EPOCH) + "\n")
-log_list.append("BLR: " + str(BASE_LEARNING_RATE) + "\n")
-log_list.append("M: " + str(MOMENTUM) + "\n")
-log_list.append("O: " + str(OPTIMIZER) + "\n")
-log_list.append("DS: " + str(DECAY_STEP) + "\n")
-log_list.append("DR: " + str(DECAY_RATE) + "\n")
-pdb.set_trace
+#log_list=[]
+#log_list.append("BS: " + str(BATCH_SIZE) + "\n")
+#log_list.append("NP: " + str(NUM_POINT) + "\n")
+#log_list.append("ME: " + str(MAX_EPOCH) + "\n")
+#log_list.append("BLR: " + str(BASE_LEARNING_RATE) + "\n")
+#log_list.append("M: " + str(MOMENTUM) + "\n")
+#log_list.append("O: " + str(OPTIMIZER) + "\n")
+#log_list.append("DS: " + str(DECAY_STEP) + "\n")
+#log_list.append("DR: " + str(DECAY_RATE) + "\n")
+#pdb.set_trace
 
-logger.changeLoggerTrain(log_list)
+#logger.changeLoggerTrain(log_list)
 
 
 

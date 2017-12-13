@@ -8,7 +8,6 @@ import networkx as nx
 from networkx.algorithms.components.connected import connected_components
 import matplotlib.pyplot as plt
 import random
-from vispy import scene, visuals, app, gloo, io
 from itertools import cycle
 import time
 
@@ -77,9 +76,13 @@ def resize(model,pointCloud):
 	return formatedCloud
 
 def retrieveData():
-	pointCloud = readFile("set2.pcd")
+	pointCloud = readFile("DataSet:13Frame:359.pcd")
+	current_time = time.time()
 	tree = KDTree(pointCloud)
+	print("Tree build time:%f",(time.time()-current_time))
+	current_time = time.time()
 	Graph=to_graph(getNeighbors(tree,pointCloud))
+	print("Graph build time:%f",(time.time()-current_time))
 	subGraph = list(nx.connected_components(Graph))
 	return formatData(subGraph,pointCloud)
 
@@ -114,7 +117,7 @@ def exportData():
 def printInfo():
 	start_time = time.time()
 	data,labels = retrieveData()
-	print(time.time()-start_time)
+	print("Total time for retrieve:%f",(time.time()-start_time))
 	a=0
 	for x in data:
 		a= a+ len(x)		
@@ -154,4 +157,4 @@ def colorMaping(predLabels,data):
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
-
+data, labels = retrieveData()
