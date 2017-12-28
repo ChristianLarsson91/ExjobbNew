@@ -6,12 +6,9 @@ from sklearn.neighbors import KDTree
 import pdb
 import networkx as nx
 from networkx.algorithms.components.connected import connected_components
-import matplotlib.pyplot as plt
 import random
-from vispy import scene, visuals, app, gloo, io
 from itertools import cycle
 import time
-import pdb
 
 groundLevel = -1.64
 distance = 0.5
@@ -77,17 +74,21 @@ def resize(model,pointCloud):
 
 	return formatedCloud
 
-def retrieveData():
-	pointCloud = readFile(sys.argv[1])
+def retrieveData(inputFile):
+	pointCloud = readFile(inputFile)
+	current_time = time.time()
 	tree = KDTree(pointCloud)
+	print("Tree build time:%f",(time.time()-current_time))
+	current_time = time.time()
 	Graph=to_graph(getNeighbors(tree,pointCloud))
+	print("Graph build time:%f",(time.time()-current_time))
 	subGraph = list(nx.connected_components(Graph))
 	return formatData(subGraph,pointCloud)
 
-def exportData():
+def importData(inputFile):
 	formatedList = []
 	orderList = []
-	data,labels = retrieveData()
+	data,labels = retrieveData(inputFile)
 	for cluster in data:
 		if len(cluster) == 128:
 			X = (max([point[0] for point in cluster]) + min([point[0] for point in cluster])) / 2
@@ -96,17 +97,26 @@ def exportData():
 			centeredCoordinates = [(point[0]-X,point[1]-Y,point[2]-Z) for point in cluster]
 			formatedList.append(centeredCoordinates)
 			orderList.append(data.index(cluster))
-	return np.array(formatedList), orderList
+	return np.array(formatedList), orderList, data
 
 
-
+#fileName = 0
+#for cluster in subGraph:
+#	if len(cluster) > 30:	
+#		list(cluster)
+#		fileName += 1
+#		output=open((str(fileName)+".pcd"),"w")
+#		output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(cluster)) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(cluster))+"\nDATA ascii\n")
+#		for node in cluster:
+#			output.write(str(pointCloud[node][0])+" "+str(pointCloud[node][1])+" "+str(pointCloud[node][2])+"\n")
+#		output.close()
 
 
 
 def printInfo():
 	start_time = time.time()
 	data,labels = retrieveData()
-	print(time.time()-start_time)
+	print("Total time for retrieve:%f",(time.time()-start_time))
 	a=0
 	for x in data:
 		a= a+ len(x)		
@@ -115,56 +125,12 @@ def printInfo():
 
 def convertToNumpy2D(data):
 	array = np.array([[0,0,0]])
+	objLen = []
 	for x in range(len(data)):
+		objLen.append(len(data[x]))
 		temp=np.asarray(data[x],dtype=np.float32)
 		array = np.concatenate((array,temp),axis=0)
-	return array
-
-
-
-canvas = scene.SceneCanvas(keys='interactive', show=True)
-view = canvas.central_widget.add_view()
-fov = 60.
-cam1 = scene.cameras.FlyCamera(parent=view.scene, fov=fov)
-cam2 = scene.cameras.TurntableCamera(parent=view.scene, fov=fov)
-cam3 = scene.cameras.ArcballCamera(parent=view.scene, fov=fov)
-view.camera = cam1
-
-# Implement key presses
-@canvas.events.key_press.connect
-def on_key_press(event):
-    global opaque_cmap, translucent_cmap
-    if event.text == '1':
-        cam_toggle = {cam1: cam2, cam2: cam3, cam3: cam1}
-        view.camera = cam_toggle.get(view.camera, 'fly')
-    elif event.text == '2':
-        methods = ['mip', 'translucent', 'iso', 'additive']
-        method = methods[(methods.index(volume1.method) + 1) % 4]
-        print("Volume render method: %s" % method)
-        cmap = opaque_cmap if method in ['mip', 'iso'] else translucent_cmap
-        volume1.method = method
-        volume1.cmap = cmap
-        volume2.method = method
-        volume2.cmap = cmap
-    elif event.text == '3':
-        volume1.visible = not volume1.visible
-        volume2.visible = not volume1.visible
-    elif event.text == '4':
-        if volume1.method in ['mip', 'iso']:
-            cmap = opaque_cmap = next(opaque_cmaps)
-        else:
-            cmap = translucent_cmap = next(translucent_cmaps)
-        volume1.cmap = cmap
-        volume2.cmap = cmap
-    elif event.text == '0':
-        cam1.set_range()
-        cam3.set_range()
-    elif event.text != '' and event.text in '[]':
-        s = -0.025 if event.text == '[' else 0.025
-        volume1.threshold += s
-        volume2.threshold += s
-        th = volume1.threshold if volume1.visible else volume2.threshold
-        print("Isosurface threshold: %0.3f" % th)
+	return array, objLen
 
 
 # Create the scatter plot
@@ -174,14 +140,14 @@ def colorMaping(predLabels,data):
 	n=0	
 	for obj in data:
 		if len(obj) == 128:
-			if predLabels[n] == 0:
-				color = np.array([[1, 0, 0]] * len(obj))
-				colorMap = np.concatenate((colorMap,color),axis=0)
-			elif predLabels[n] == 1:
-				color = np.array([[0, 1, 0]] * len(obj))
+			if predLabels[n] == 1:
+				color = np.array([[1, 1, 0]] * len(obj))
 				colorMap = np.concatenate((colorMap,color),axis=0)
 			elif predLabels[n] == 2:
-				color = np.array([[0, 0, 1]] * len(obj))
+				color = np.array([[0, 1, 1]] * len(obj))
+				colorMap = np.concatenate((colorMap,color),axis=0)
+			elif predLabels[n] == 3:
+				color = np.array([[1, 0, 1]] * len(obj))
 				colorMap = np.concatenate((colorMap,color),axis=0)
 			else:
 				color = np.array([[1, 1, 1]] * len(obj))
@@ -191,35 +157,4 @@ def colorMaping(predLabels,data):
 			color = np.array([[1, 1, 1]] * len(obj))
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
-
-def outputPCDFiles(data):
-	fileName = 0
-	for cluster in data:
-		if len(cluster) == 128:
-			fileName += 1
-			output=open((str(fileName)+".pcd"),"w")
-			output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(cluster)) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(cluster))+"\nDATA ascii\n")
-			for node in cluster:
-				output.write(str(node[0])+" "+str(node[1])+" "+str(node[2])+"\n")
-			output.close()
-
-#data,labels = retrieveData()
-#array = convertToNumpy2D(data)
-file = h5py.File(sys.argv[1],'r')
-data = list(file['data'])
-predLabels = list(file['label'])
-#pdb.set_trace()
-scatter = scene.visuals.Markers()
-array = convertToNumpy2D(data)
-#predLabels = np.ndarray.tolist(predLabels)
-#data = np.ndarray.tolist(data)
-#formated, orderList = exportData()
-
-
-
-scatter.set_data(array[:,:3], face_color=colorMaping(predLabels,data),size=2)
-view.add(scatter)
-view.camera = scene.PanZoomCamera(aspect=1)
-view.camera.set_range()
-app.run()
 
