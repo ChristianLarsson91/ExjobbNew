@@ -93,9 +93,9 @@ def importData(inputFile,seg_alg):
 	orderList = []
 	if seg_alg =='NN':
 		data,labels = NN_segmentation(inputFile)
-	elif seg_alg == 'HDBSCAN'
+	elif seg_alg == 'HDBSCAN':
 		data,labels = HDBSCAN(inputFile)
-	else
+	else:
 		print('No algorithm choosen') 
 	for cluster in data:
 		if len(cluster) == 128:
@@ -114,14 +114,23 @@ def HDBSCAN(inputFile):
 	clusterer = hdbscan.HDBSCAN(min_cluster_size=128)
 	clusterer.fit(array)
 	clusters = []
-	points = []
 	for i in range(len(clusterer.labels_)):
 		dictonary[clusterer.labels_[i]].append(pointCloud[i])
 	for index in range(len(dictonary)):	
+		points = []
 		for node in dictonary[index]:
 			points.append(node)
 		clusters.append(points)
-	return formatData(clusters,pointCloud)
+	data = []
+	labels = []
+	for model in clusters:
+		if len(model) > 128:
+			data.append(random.sample(model,pointLimit))
+			labels.append(0)
+		else:
+			data.append(model)
+			labels.append(0)
+	return data,labels
 
 	#fileName = 0
 #for cluster in subGraph:
@@ -136,9 +145,9 @@ def HDBSCAN(inputFile):
 
 
 
-def printInfo():
+def printInfo(fileName):
 	start_time = time.time()
-	data,labels = retrieveData()
+	data,labels = NN_segmentation(fileName)
 	print("Total time for retrieve:%f",(time.time()-start_time))
 	a=0
 	for x in data:
@@ -181,3 +190,5 @@ def colorMaping(predLabels,data):
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
+#data1,label1 = NN_segmentation(sys.argv[1])
+#data2,label2 = HDBSCAN(sys.argv[1])

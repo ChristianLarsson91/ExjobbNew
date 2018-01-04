@@ -17,7 +17,6 @@ for i in range(len(clusterer.labels_)):
 
 fileName = 0
 for index in range(len(dictonary)):
-	pdb.set_trace()
 	if len(dictonary[index]) > 30:
 		fileName += 1
 		output=open((str(fileName)+".pcd"),"w")
