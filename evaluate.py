@@ -27,9 +27,10 @@ parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]'
 parser.add_argument('--visu', action='store_true', help='Whether to dump image for error case [default: False]')
 parser.add_argument('--output', help='Output Filename')
 parser.add_argument('--input',help='Input Filename')
+parser.add_argument('--seg_alg',help='Segmentation Algorithm')
 FLAGS = parser.parse_args()
 
-
+SEG_ALG=FLAGS.seg_alg
 INPUT_FILE_NAME = FLAGS.input
 OUTPUT_FILE_NAME = FLAGS.output
 BATCH_SIZE = FLAGS.batch_size
@@ -105,8 +106,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     total_correct_class = [0 for _ in range(NUM_CLASSES)]
     fout = open(os.path.join(DUMP_DIR, 'pred_label.txt'), 'w')
 
-    current_data, order_list, all_clusters = nn.importData(INPUT_FILE_NAME)
-    pdb.set_trace()
+    current_data, order_list, all_clusters = nn.importData(INPUT_FILE_NAME,SEG_ALG)
     array, objLen = nn.convertToNumpy2D(all_clusters)
     objLen = np.array(objLen) 
     current_label = np.zeros(len(current_data))

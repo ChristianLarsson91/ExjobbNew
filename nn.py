@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import random
 from itertools import cycle
 import time
+import hdbscan
+from collections import defaultdict
 
 groundLevel = -1.64
 distance = 0.5
@@ -75,7 +77,7 @@ def resize(model,pointCloud):
 
 	return formatedCloud
 
-def retrieveData(inputFile):
+def NN_segmentation(inputFile):
 	pointCloud = readFile(inputFile)
 	current_time = time.time()
 	tree = KDTree(pointCloud)
@@ -86,10 +88,15 @@ def retrieveData(inputFile):
 	subGraph = list(nx.connected_components(Graph))
 	return formatData(subGraph,pointCloud)
 
-def importData(inputFile):
+def importData(inputFile,seg_alg):
 	formatedList = []
 	orderList = []
-	data,labels = retrieveData(inputFile)
+	if seg_alg =='NN':
+		data,labels = NN_segmentation(inputFile)
+	elif seg_alg == 'HDBSCAN'
+		data,labels = HDBSCAN(inputFile)
+	else
+		print('No algorithm choosen') 
 	for cluster in data:
 		if len(cluster) == 128:
 			X = (max([point[0] for point in cluster]) + min([point[0] for point in cluster])) / 2
@@ -100,8 +107,23 @@ def importData(inputFile):
 			orderList.append(data.index(cluster))
 	return np.array(formatedList), orderList, data
 
+def HDBSCAN(inputFile):
+	dictonary = defaultdict(list)
+	pointCloud = readFile(inputFile)
+	array = np.asarray(pointCloud)
+	clusterer = hdbscan.HDBSCAN(min_cluster_size=128)
+	clusterer.fit(array)
+	clusters = []
+	points = []
+	for i in range(len(clusterer.labels_)):
+		dictonary[clusterer.labels_[i]].append(pointCloud[i])
+	for index in range(len(dictonary)):	
+		for node in dictonary[index]:
+			points.append(node)
+		clusters.append(points)
+	return formatData(clusters,pointCloud)
 
-#fileName = 0
+	#fileName = 0
 #for cluster in subGraph:
 #	if len(cluster) > 30:	
 #		list(cluster)

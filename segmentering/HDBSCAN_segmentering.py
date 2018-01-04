@@ -10,14 +10,14 @@ dictonary = defaultdict(list)
 pointCloud = lib.readFile(sys.argv[1])
 array = np.asarray(pointCloud)
 
-clusterer = hdbscan.HDBSCAN()
+clusterer = hdbscan.HDBSCAN(min_cluster_size=128)
 clusterer.fit(array)
 for i in range(len(clusterer.labels_)):
 	dictonary[clusterer.labels_[i]].append(pointCloud[i])
 
 fileName = 0
 for index in range(len(dictonary)):
-	#pdb.set_trace()
+	pdb.set_trace()
 	if len(dictonary[index]) > 30:
 		fileName += 1
 		output=open((str(fileName)+".pcd"),"w")
