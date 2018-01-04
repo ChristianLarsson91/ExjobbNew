@@ -106,9 +106,9 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     total_correct_class = [0 for _ in range(NUM_CLASSES)]
     fout = open(os.path.join(DUMP_DIR, 'pred_label.txt'), 'w')
 
-    current_data, order_list, all_clusters = nn.importData(INPUT_FILE_NAME,SEG_ALG)
-    array, objLen = nn.convertToNumpy2D(all_clusters)
-    objLen = np.array(objLen) 
+    current_data, order_list, pointCloud, obj_length, all_clusters = nn.importData(INPUT_FILE_NAME,SEG_ALG)
+    pdb.set_trace()
+
     current_label = np.zeros(len(current_data))
     current_data = current_data[:,0:NUM_POINT,:]
     current_label = np.squeeze(current_label)
@@ -174,8 +174,10 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     f = h5py.File(OUTPUT_FILE_NAME + ".h5","w")
     f.create_dataset("data",data=current_data,dtype=float)
     f.create_dataset("label",data=predValues,dtype=int)
-    f.create_dataset("all_clusters",data=array,dtype=float)
-    f.create_dataset("obj_len",data=objLen,dtype=int)
+    f.create_dataset("all_clusters",data=all_clusters,dtype=float)
+    f.create_dataset("obj_length",data=obj_length,dtype=int)
+    f.create_dataset("pointCloud",data=pointCloud,dtype=float)
+    f.create_dataset("order_list",data=order_list,dtype=int)
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))

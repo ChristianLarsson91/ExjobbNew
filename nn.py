@@ -91,21 +91,25 @@ def NN_segmentation(inputFile):
 def importData(inputFile,seg_alg):
 	formatedList = []
 	orderList = []
+	allClusters = []
+	objLen = []
 	if seg_alg =='NN':
 		data,labels = NN_segmentation(inputFile)
 	elif seg_alg == 'HDBSCAN':
-		data,labels = HDBSCAN(inputFile)
+		resizedData,labels, pointCloud, allSegmentedClusters = HDBSCAN(inputFile)
 	else:
 		print('No algorithm choosen') 
-	for cluster in data:
+	for cluster in resizedData:
 		if len(cluster) == 128:
 			X = (max([point[0] for point in cluster]) + min([point[0] for point in cluster])) / 2
 			Y = (max([point[1] for point in cluster]) + min([point[1] for point in cluster])) /2
 			Z = (max([point[2] for point in cluster]) + min([point[2] for point in cluster])) / 2
 			centeredCoordinates = [(point[0]-X,point[1]-Y,point[2]-Z) for point in cluster]
 			formatedList.append(centeredCoordinates)
-			orderList.append(data.index(cluster))
-	return np.array(formatedList), orderList, data
+			orderList.append(resizedData.index(cluster))
+		allClusters += cluster 
+		objLen.append(len(cluster))
+	return np.array(formatedList), np.array(orderList), np.array(pointCloud), np.array(objLen), np.array(allClusters)
 
 def HDBSCAN(inputFile):
 	dictonary = defaultdict(list)
@@ -130,7 +134,7 @@ def HDBSCAN(inputFile):
 		else:
 			data.append(model)
 			labels.append(0)
-	return data,labels
+	return resizedData,labels,pointCloud, allSegmentedClusters
 
 	#fileName = 0
 #for cluster in subGraph:
@@ -156,13 +160,15 @@ def printInfo(fileName):
 	print(len(data))
 
 def convertToNumpy2D(data):
-	array = np.array([[0,0,0]])
+	#array = np.array([[0,0,0]])
+	array = []
 	objLen = []
 	for x in range(len(data)):
 		objLen.append(len(data[x]))
-		temp=np.asarray(data[x],dtype=np.float32)
-		array = np.concatenate((array,temp),axis=0)
-	return array, objLen
+		array.append(data[x])
+		#temp=np.asarray(data[x],dtype=np.float32)
+		#array = np.concatenate((array,temp),axis=0)
+	return np.array(array), objLen
 
 
 # Create the scatter plot
