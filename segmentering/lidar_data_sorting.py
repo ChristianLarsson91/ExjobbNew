@@ -9,15 +9,15 @@ import h5py
 class lidar_parameters:
     vertical_layers = 64  # amount
     horizontal_layers = 4501  # amount
-    max_range = 40  # meters
-    data_rate = 1.1*10**6  # points/sec
+    max_range = 60  # meters
+    data_rate = 2.2*10**6  # points/sec
     horizontal_freq = 10.0  # Hz
     horizontal_coverage = 360.0  # degrees
-    vertical_coverage = 26.8  # degrees
-    readings_per_degree = 1/0.18  # @10Hz
+    vertical_coverage = 26.9  # degrees
+    readings_per_degree = 12.5  # @10Hz
 
 
-def read_lidar_data(lidar=lidar_parameters, lidar_filename='ls.cap'):
+def read_lidar_data(lidar=lidar_parameters, lidar_filename=sys.argv[1]):
     with open(lidar_filename) as f:
         all_lidar_data = []
         for line in f:
@@ -48,10 +48,11 @@ def transform_2_cartesian(polar_lidar_data, lidar=lidar_parameters):
     y_pos = ly - y
     z_pos = lz
 
-    theta = np.radians(
-        90 + (lidar.vertical_coverage - np.arange(lidar.vertical_layers) *
-              lidar.vertical_coverage / lidar.vertical_layers))
-
+#    theta = np.radians(
+#        90 + (lidar.vertical_coverage / 2 - np.arange(lidar.vertical_layers) *
+#              lidar.vertical_coverage / 2 / lidar.vertical_layers))
+    theta = np.radians(90+(lidar.vertical_coverage/lidar.vertical_layers)*np.arange(-31,33,1))[::-1]
+    #pdb.set_trace()
     phi = np.radians(
         lidar.horizontal_coverage / 2 - np.arange(lidar.horizontal_layers) *
         lidar.horizontal_coverage / lidar.horizontal_layers)
@@ -85,6 +86,12 @@ def transform_2_cartesian(polar_lidar_data, lidar=lidar_parameters):
 
     return cartesian_lidar_data
 
+def outputPCDFile(pointCloud):
+    output=open(sys.argv[2],"w")
+    output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(pointCloud[0])) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(pointCloud[0]))+"\nDATA ascii\n")
+    for node in range(len(pointCloud[0]))  :
+        output.write(str(pointCloud[0][node][0])+" "+str(pointCloud[0][node][1])+" "+str(pointCloud[0][node][2])+"\n")
+    output.close()
 
 if __name__ == '__main__':
     lidar = lidar_parameters
@@ -93,5 +100,4 @@ if __name__ == '__main__':
     #sys.stdout.write(cartesian_lidar_data)
     f = h5py.File("lidar.h5","w")
     f.create_dataset("data",data=cartesian_lidar_data[0],dtype=float)
-
-    print(cartesian_lidar_data)
+    outputPCDFile(cartesian_lidar_data)
