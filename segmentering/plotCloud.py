@@ -12,10 +12,20 @@ from vispy import scene, visuals, app, gloo, io
 from itertools import cycle
 import time
 import pdb
+from vispy.visuals.transforms import STTransform, NullTransform
+#import joindata
 
 groundLevel = -1.64
 distance = 0.5
 pointLimit = 128
+
+class BBox(object):
+	pos = 0
+	def __init__(self, arg):
+		super(BBox, self).__init__()
+		self.arg = arg
+	def set_pos(coordinats):
+		self.pos = coordinats
 
 def readFile(fileName):
 	pointCloud = []
@@ -168,27 +178,21 @@ def on_key_press(event):
 
 
 # Create the scatter plot
-def colorMaping(predLabels,data):
+def colorMaping(predLabels,obj_length):
 	
 	colorMap = np.array([[1,1,1]])
-	n=0	
-	for obj in data:
-		if len(obj) == 128:
-			if predLabels[n] == 0:
-				color = np.array([[1, 0, 0]] * len(obj))
-				colorMap = np.concatenate((colorMap,color),axis=0)
-			elif predLabels[n] == 1:
-				color = np.array([[0, 1, 0]] * len(obj))
-				colorMap = np.concatenate((colorMap,color),axis=0)
-			elif predLabels[n] == 2:
-				color = np.array([[0, 0, 1]] * len(obj))
-				colorMap = np.concatenate((colorMap,color),axis=0)
-			else:
-				color = np.array([[1, 1, 1]] * len(obj))
-				colorMap = np.concatenate((colorMap,color),axis=0)
-			n += 1
+	for index,label in enumerate(predLabels):
+		if label == 0:
+			color = np.array([[1, 0, 0]] * obj_length[index])
+			colorMap = np.concatenate((colorMap,color),axis=0)
+		elif label == 1:
+			color = np.array([[0, 1, 0]] * obj_length[index])
+			colorMap = np.concatenate((colorMap,color),axis=0)
+		elif label == 2:
+			color = np.array([[0, 0.7, 1]] * obj_length[index])
+			colorMap = np.concatenate((colorMap,color),axis=0)
 		else:
-			color = np.array([[1, 1, 1]] * len(obj))
+			color = np.array([[1, 1, 1]] * obj_length[index])
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
 
@@ -202,22 +206,25 @@ def outputPCDFiles(data):
 			for node in cluster:
 				output.write(str(node[0])+" "+str(node[1])+" "+str(node[2])+"\n")
 			output.close()
+	
 
-#data,labels = retrieveData()
-#array = convertToNumpy2D(data)
+# build visuals
+
+#Plot3D = scene.visuals.create_visual_node(visuals.LinePlotVisual)
+#posBB = joindata.main().traspose()
+
+#Plot3D(BBox, width=2.0, color='red', edge_color='w',parent=view.scene)
+
+
 file = h5py.File(sys.argv[1],'r')
-data = list(file['data'])
+obj_length = list(file['obj_length'])
 predLabels = list(file['label'])
-#pdb.set_trace()
+all_clusters = file['all_segmented_points']
+all_clusters = np.concatenate((all_clusters,np.array([[0,0,0]])),axis=0)
+
 scatter = scene.visuals.Markers()
-array = convertToNumpy2D(data)
-#predLabels = np.ndarray.tolist(predLabels)
-#data = np.ndarray.tolist(data)
-#formated, orderList = exportData()
+scatter.set_data(all_clusters[:,:3], face_color=colorMaping(predLabels,obj_length),size=2)
 
-
-
-scatter.set_data(array[:,:3], face_color=colorMaping(predLabels,data),size=2)
 view.add(scatter)
 view.camera = scene.PanZoomCamera(aspect=1)
 view.camera.set_range()

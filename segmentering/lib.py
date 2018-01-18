@@ -10,9 +10,9 @@ import random
 from itertools import cycle
 import time
 
-groundLevel = -1.64
 distance = 0.5
 pointLimit = 128
+groundLevel = -1.64
 
 def readFile(fileName):
 	pointCloud = []
@@ -20,11 +20,18 @@ def readFile(fileName):
 	for line in inputFile:
 		try:
 			floats=[float(x) for x in line.split(" ")]
-			if floats[2]>groundLevel and floats[0] < 40 and floats[0] > -40 and floats[1] < 40 and floats[1] > -40 :
+			if floats[2] > groundLevel and floats[0] < 40 and floats[0] > -40 and floats[1] < 40 and floats[1] > -40:
 				pointCloud.append(floats[0:3])
 		except Exception as e:
 			pass
 	return pointCloud
+
+def filterGround(pointCloud):
+	temp = []
+	for point in pointCloud:
+		if point[2] > groundLevel and point[0] < 3500 and point[0] > -3500 and point[1] < 3500 and point[1] > -3500:
+			temp.append(point)
+	return temp
 
 
 def getNeighbors(tree,pointCloud):
@@ -48,7 +55,7 @@ def to_edges(neighbors):
 		yield last,current
 		last = current
 
-def formatData(pointClusters,pointCloud):
+def formatDataSize(pointClusters,pointCloud):
 	formatedClusters = []
 	labels = []
 	for points in pointClusters:
@@ -60,7 +67,18 @@ def formatData(pointClusters,pointCloud):
 			labels.append(0)
 		else:
 			pass	
-	return (formatedClusters, labels)
+	pdb.set_trace()
+	return formatedClusters, labels
+
+def formatData(pointClusters,pointCloud):
+	formatedCluster = []
+	allClusters = []
+	for points in pointClusters:
+			formatedCluster = []
+			for point in points:
+				formatedCluster.append(pointCloud[point])
+			allClusters.append(formatedCluster)
+	return allClusters
 
 def resize(model,pointCloud):
 	if len(model) > 128:
@@ -71,10 +89,21 @@ def resize(model,pointCloud):
 	formatedCloud = []
 	for point in newSet:
 		formatedCloud.append(pointCloud[point])
-
 	return formatedCloud
 
 def retrieveData(inputFile):
+	pointCloud = readFile(inputFile)
+	#pointCloud = filterGround(pointCloud)
+	current_time = time.time()
+	tree = KDTree(pointCloud)
+	print("Tree build time:%f",(time.time()-current_time))
+	current_time = time.time()
+	Graph=to_graph(getNeighbors(tree,pointCloud))
+	print("Graph build time:%f",(time.time()-current_time))
+	subGraph = list(nx.connected_components(Graph))
+	return formatDataSize(subGraph,pointCloud)
+
+def getClusters(inputFile):
 	pointCloud = readFile(inputFile)
 	current_time = time.time()
 	tree = KDTree(pointCloud)
@@ -157,4 +186,12 @@ def colorMaping(predLabels,data):
 			color = np.array([[1, 1, 1]] * len(obj))
 			colorMap = np.concatenate((colorMap,color),axis=0)
 	return colorMap
+
+def pointCloudToFile(pointCloud,fileName):
+	output = open(fileName,"w")
+	output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(pointCloud)) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(pointCloud))+"\nDATA ascii\n")
+	for point in pointCloud:
+		output.write(str(point[0])+" "+str(point[1])+" "+str(point[2])+"\n")
+	output.close()
+
 

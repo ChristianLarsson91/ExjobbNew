@@ -8,7 +8,7 @@ import h5py
 
 class lidar_parameters:
     vertical_layers = 64  # amount
-    horizontal_layers = 4501  # amount
+    horizontal_layers = 5401  # amount
     max_range = 60  # meters
     data_rate = 2.2*10**6  # points/sec
     horizontal_freq = 10.0  # Hz
@@ -51,8 +51,7 @@ def transform_2_cartesian(polar_lidar_data, lidar=lidar_parameters):
 #    theta = np.radians(
 #        90 + (lidar.vertical_coverage / 2 - np.arange(lidar.vertical_layers) *
 #              lidar.vertical_coverage / 2 / lidar.vertical_layers))
-    theta = np.radians(90+(lidar.vertical_coverage/lidar.vertical_layers)*np.arange(-31,33,1))[::-1]
-    #pdb.set_trace()
+    theta = np.radians(90+(lidar.vertical_coverage/lidar.vertical_layers)*np.arange(-lidar.vertical_layers/2,lidar.vertical_layers/2,1))[::-1]
     phi = np.radians(
         lidar.horizontal_coverage / 2 - np.arange(lidar.horizontal_layers) *
         lidar.horizontal_coverage / lidar.horizontal_layers)
@@ -61,21 +60,14 @@ def transform_2_cartesian(polar_lidar_data, lidar=lidar_parameters):
         (len(polar_lidar_data),
          lidar.vertical_layers * lidar.horizontal_layers,
          3))
-
     for frame_number in range(len(polar_lidar_data)):
-        x = x_pos + np.multiply(
-            np.multiply(
-                polar_lidar_data[frame_number][1],
-                np.cos(phi)).transpose(),
-            np.sin(theta)).transpose()
+        a = np.multiply(polar_lidar_data[frame_number][1],np.cos(phi))
+        x = x_pos + np.multiply(a.transpose(),np.sin(theta)).transpose()
         x = x.reshape(lidar.vertical_layers * lidar.horizontal_layers, 1)
         cartesian_lidar_data[frame_number, :, 0] = x.squeeze()
 
         y = y_pos + np.multiply(
-            np.multiply(
-                polar_lidar_data[frame_number][1],
-                np.sin(phi)).transpose(),
-            np.sin(theta)).transpose()
+            np.multiply(polar_lidar_data[frame_number][1],np.sin(phi)).transpose(),np.sin(theta)).transpose()
         y = y.reshape(lidar.vertical_layers * lidar.horizontal_layers, 1)
         cartesian_lidar_data[frame_number, :, 1] = y.squeeze()
 

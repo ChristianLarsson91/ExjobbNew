@@ -55,15 +55,27 @@ def formatData(pointClusters,pointCloud):
 	formatedClusters = []
 	labels = []
 	for points in pointClusters:
-		if len(points) >= 128:
-			formatedClusters.append(resize(points,pointCloud))
-			labels.append(0)
-		elif 128 > len(points) and len(points) > 20:
-			formatedClusters.append(resize(points,pointCloud))
+			pointCluster = []
+			for point in points:
+				pointCluster.append(pointCloud[point])
+			formatedClusters.append(pointCluster)
+	for model in formatedClusters:
+		if len(model) > 128:
+			resizedData.append(random.sample(model,pointLimit))
 			labels.append(0)
 		else:
-			pass	
-	return (formatedClusters, labels)
+			resizedData.append(model)
+			labels.append(0)	
+	return formatedClusters, labels
+
+def subGraph_to_points(pointClusters,pointCloud):
+	allPoints = []
+	clusterLength = []
+	for points in pointClusters:
+			for point in points:
+				allPoints.append(pointCloud[point])
+			clusterLength.append(len(points))
+	return allPoints, clusterLength
 
 def resize(model,pointCloud):
 	if len(model) > 128:
@@ -86,7 +98,9 @@ def NN_segmentation(inputFile):
 	Graph=to_graph(getNeighbors(tree,pointCloud))
 	print("Graph build time:%f",(time.time()-current_time))
 	subGraph = list(nx.connected_components(Graph))
-	return formatData(subGraph,pointCloud)
+	allSegmentedPoints, objLength = subGraph_to_points(subGraph,pointCloud)
+	resizedData,labels = formatData(subGraph,pointCloud)
+	return resizedData, labels, pointCloud, allSegmentedPoints, objLength
 
 def importData(inputFile,seg_alg):
 	formatedList = []

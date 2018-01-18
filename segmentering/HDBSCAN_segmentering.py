@@ -9,9 +9,8 @@ import random
 dictonary = defaultdict(list)
 
 pointCloud = lib.readFile(sys.argv[1])
-#pdb.set_trace()
+#pointCloud = lib.filterGround(pointCloud)
 array = np.asarray(pointCloud)
-
 clusterer = hdbscan.HDBSCAN(min_cluster_size=200,approx_min_span_tree=True,leaf_size=50,
     gen_min_span_tree=True)
 clusterer.fit(array)
@@ -23,7 +22,7 @@ def outputFiles():
 	for index in range(len(dictonary)):
 		if len(dictonary[index]) > 30:
 			fileName += 1
-			output=open((str(fileName)+".pcd"),"w")
+			output=open((str(fileName)+"_full_real.pcd"),"w")
 			output.write("# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z\nSIZE 4 4 4\nTYPE F F F\nCOUNT 1 1 1\nWIDTH "+str(len(dictonary[index])) +"\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS "+str(len(dictonary[index]))+"\nDATA ascii\n")
 			for node in dictonary[index]:
 				output.write(str(node[0])+" "+str(node[1])+" "+str(node[2])+"\n")
@@ -56,4 +55,4 @@ def outputFiles_128_points():
 				output.write(str(obj[x][0])+" "+str(obj[x][1])+" "+str(obj[x][2])+"\n")
 			output.close()
 
-outputFiles_128_points()
+outputFiles()
