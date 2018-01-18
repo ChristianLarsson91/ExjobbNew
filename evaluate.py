@@ -106,7 +106,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     total_correct_class = [0 for _ in range(NUM_CLASSES)]
     fout = open(os.path.join(DUMP_DIR, 'pred_label.txt'), 'w')
 
-    current_data, order_list, pointCloud, obj_length, all_clusters = nn.importData(INPUT_FILE_NAME,SEG_ALG)
+    current_data, order_list, pointCloud, obj_length, all_segmented_points = nn.importData(INPUT_FILE_NAME,SEG_ALG)
     pdb.set_trace()
 
     current_label = np.zeros(len(current_data))
@@ -174,7 +174,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     f = h5py.File(OUTPUT_FILE_NAME + ".h5","w")
     f.create_dataset("data",data=current_data,dtype=float)
     f.create_dataset("label",data=predValues,dtype=int)
-    f.create_dataset("all_clusters",data=all_clusters,dtype=float)
+    f.create_dataset("all_segmented_points",data=all_segmented_points,dtype=float)
     f.create_dataset("obj_length",data=obj_length,dtype=int)
     f.create_dataset("pointCloud",data=pointCloud,dtype=float)
     f.create_dataset("order_list",data=order_list,dtype=int)

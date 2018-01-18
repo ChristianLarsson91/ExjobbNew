@@ -23,7 +23,7 @@ def readFile(fileName):
 	for line in inputFile:
 		try:
 			floats=[float(x) for x in line.split(" ")]
-			if floats[2]>groundLevel and floats[0] < 40 and floats[0] > -40 and floats[1] < 40 and floats[1] > -40 :
+			if floats[2]>groundLevel and floats[0] < 40 and floats[0] > -40 and floats[1] < 40 and floats[1] > -40:
 				pointCloud.append(floats[0:3])
 		except Exception as e:
 			pass
@@ -96,45 +96,48 @@ def importData(inputFile,seg_alg):
 	if seg_alg =='NN':
 		data,labels = NN_segmentation(inputFile)
 	elif seg_alg == 'HDBSCAN':
-		resizedData,labels, pointCloud, allSegmentedClusters = HDBSCAN(inputFile)
+		resizedData,labels, pointCloud, allSegmentedPoints,objLength = HDBSCAN(inputFile) 
+		for cluster in resizedData:
+			if len(cluster) == 128:
+				X = (max([point[0] for point in cluster]) + min([point[0] for point in cluster])) / 2
+				Y = (max([point[1] for point in cluster]) + min([point[1] for point in cluster])) /2
+				Z = (max([point[2] for point in cluster]) + min([point[2] for point in cluster])) / 2
+				centeredCoordinates = [(point[0]-X,point[1]-Y,point[2]-Z) for point in cluster]
+				formatedList.append(centeredCoordinates)
+				orderList.append(resizedData.index(cluster))
+			allClusters += cluster
 	else:
 		print('No algorithm choosen') 
-	for cluster in resizedData:
-		if len(cluster) == 128:
-			X = (max([point[0] for point in cluster]) + min([point[0] for point in cluster])) / 2
-			Y = (max([point[1] for point in cluster]) + min([point[1] for point in cluster])) /2
-			Z = (max([point[2] for point in cluster]) + min([point[2] for point in cluster])) / 2
-			centeredCoordinates = [(point[0]-X,point[1]-Y,point[2]-Z) for point in cluster]
-			formatedList.append(centeredCoordinates)
-			orderList.append(resizedData.index(cluster))
-		allClusters += cluster 
-		objLen.append(len(cluster))
-	return np.array(formatedList), np.array(orderList), np.array(pointCloud), np.array(objLen), np.array(allClusters)
+	return np.array(formatedList), np.array(orderList), np.array(pointCloud), np.array(objLength), np.array(allSegmentedPoints)
 
 def HDBSCAN(inputFile):
 	dictonary = defaultdict(list)
 	pointCloud = readFile(inputFile)
 	array = np.asarray(pointCloud)
-	clusterer = hdbscan.HDBSCAN(min_cluster_size=128)
+	clusterer = hdbscan.HDBSCAN(min_cluster_size=200,approx_min_span_tree=True,leaf_size=50,gen_min_span_tree=True)
 	clusterer.fit(array)
-	clusters = []
+	allSegmentedClusters = []
+	allSegmentedPoints = []
+	objLength = []
 	for i in range(len(clusterer.labels_)):
 		dictonary[clusterer.labels_[i]].append(pointCloud[i])
 	for index in range(len(dictonary)):	
 		points = []
 		for node in dictonary[index]:
 			points.append(node)
-		clusters.append(points)
-	data = []
+		allSegmentedPoints = allSegmentedPoints + points
+		allSegmentedClusters.append(points)
+		objLength.append(len(points))
+	resizedData = []
 	labels = []
-	for model in clusters:
+	for model in allSegmentedClusters:
 		if len(model) > 128:
-			data.append(random.sample(model,pointLimit))
+			resizedData.append(random.sample(model,pointLimit))
 			labels.append(0)
 		else:
-			data.append(model)
+			resizedData.append(model)
 			labels.append(0)
-	return resizedData,labels,pointCloud, allSegmentedClusters
+	return resizedData,labels,pointCloud, allSegmentedPoints, objLength
 
 	#fileName = 0
 #for cluster in subGraph:
